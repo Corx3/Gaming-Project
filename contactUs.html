@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Contact LUGX Gaming – reach out with your questions and feedback."
+      content="Get in touch with Game Stop – We are here to assist you and answer all your gaming queries 24/7."
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -13,94 +13,90 @@
     />
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <title>Contact Us – LUGX Gaming</title>
+    <title>Contact Us – Game Stop</title>
   </head>
 
   <body>
-    <!-- ========== HEADER ========== -->
-    <div class="headerContainer">
-      <div class="header">
-        <a href="index.html" class="logo">
-          <img src="images/loogoo.svg" alt="Alpha Logo" />
+    <div class="mainNavigationWrapper">
+      <div class="navContentBoundary">
+        <a href="index.html" class="brandBrandmark">
+          <img src="images/loogoo.svg" alt="Game Stop Logo" />
         </a>
         <button
-          class="menuToggle"
-          id="menuToggle"
+          class="mobileMenuTrigger"
+          id="triggerMobileNav"
           aria-label="Toggle navigation"
         >
           &#9776;
         </button>
-        <nav class="headerLinks" id="headerLinks">
+        <nav class="navigationLinkList" id="navigationLinkList">
           <a href="index.html">Home</a>
-          <a href="index.html#trending">Our Shop</a>
-          <a href="index.html#mostPlayed">Product Details</a>
-          <a href="contactUs.html" class="active">Contact Us</a>
-          <button class="btn" id="signInBtn">Sign In</button>
+          <a href="index.html#showcaseSection">Our Shop</a>
+          <a href="index.html#engagementSection">Product Details</a>
+          <a href="contact.html" class="currentActiveItem">Contact Us</a>
+          <button class="globalActionButton" id="openAuthPortal">Sign In</button>
         </nav>
       </div>
     </div>
 
-    <!-- ========== CONTACT FORM ========== -->
-    <div class="contactHero">
-      <h1>It’s a pleasure to connect with you</h1>
-      <p>Have a question or feedback? We'd love to hear from you.</p>
+    <div class="informationalHeroHeader">
+      <h1 class="informationalTitle">Get In <i>Touch</i></h1>
+      <p class="informationalSubtitle">Have a question or feedback? We would <i>love</i> to hear from you.</p>
     </div>
 
-    <div class="formContainer">
-      <form id="contactForm" novalidate>
-        <h2>Send us a Message</h2>
+    <div class="formSubmissionBoundary">
+      <form id="feedbackDataForm" novalidate>
+        <h2 class="formBoxTitle">Send Us a <i>Message</i></h2>
 
-        <label for="contactName">Name</label>
-        <input type="text" id="contactName" placeholder="Your full name" />
+        <label class="formInputLabel" for="visitorFullName">Name</label>
+        <input class="formInteractiveField" type="text" id="visitorFullName" placeholder="Your full name" />
 
-        <label for="contactEmail">Email</label>
-        <input type="email" id="contactEmail" placeholder="your@email.com" />
+        <label class="formInputLabel" for="visitorEmailAddress">Email</label>
+        <input class="formInteractiveField" type="email" id="visitorEmailAddress" placeholder="your@email.com" />
 
-        <label for="contactAge">Age</label>
+        <label class="formInputLabel" for="visitorNumericalAge">Age</label>
         <input
+          class="formInteractiveField"
           type="number"
-          id="contactAge"
+          id="visitorNumericalAge"
           placeholder="Your age"
           min="1"
           max="120"
         />
 
-        <label for="contactMsg">Message</label>
+        <label class="formInputLabel" for="visitorTextPayload">Message</label>
         <textarea
-          id="contactMsg"
+          class="formInteractiveField formTextareaHeight"
+          id="visitorTextPayload"
           name="question"
           cols="30"
           rows="5"
-          placeholder="Write your message…"
+          placeholder="Write your message here…"
         ></textarea>
 
-        <!-- Validation message -->
-        <p id="formFeedback" class="formFeedback"></p>
+        <p id="submissionFeedbackLine" class="submissionFeedbackLine"></p>
 
-        <button type="button" class="btn" id="sendBtn">Send Message</button>
+        <button type="button" class="globalActionButton" id="triggerFormDispatch">Send Message</button>
       </form>
     </div>
 
-    <!-- ========== FOOTER ========== -->
-    <div class="footerContainer">
-      <div class="footer">
-        copyright &copy; <span id="footerYear"></span> Alpha Gaming Company. All
-        rights reserved.
+    <div class="siteFooterWrapper">
+      <div class="siteFooterContent">
+        Copyright &copy; <span id="copyrightCurrentYear"></span> <i>Game Stop</i> Store. All rights reserved.
       </div>
     </div>
 
-    <!-- ========== SIGN-IN MODAL ========== -->
-    <div class="modalOverlay" id="modalOverlay">
-      <div class="modal">
-        <button class="modalClose" id="modalClose">&times;</button>
-        <h2>Sign In</h2>
-        <input type="text" id="modalUsername" placeholder="Username" />
-        <input type="password" id="modalPassword" placeholder="Password" />
-        <p id="modalMsg" class="modalMsg"></p>
-        <button class="btn" id="modalSubmit">Login</button>
+    <div class="authModalBackdrop" id="authPortalOverlay">
+      <div class="authModalCard">
+        <button class="authModalDismiss" id="closeAuthPortal">&times;</button>
+        <h2 class="authModalTitle">Sign <i>In</i></h2>
+        <input type="text" id="authUsernameInput" placeholder="Username" />
+        <input type="password" id="authPasswordInput" placeholder="Password" />
+        <p id="authValidationMessage" class="authValidationMessage"></p>
+        <button class="globalActionButton" id="submitAuthCredentials">Login</button>
       </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
