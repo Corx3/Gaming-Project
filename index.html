@@ -5,138 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="LUGX Gaming – your ultimate destination for trending games, top categories, and the best gaming experience."
+      content="Game Stop – Your ultimate gaming hub. Discover trending titles, elite categories, and gear up for an immersive next-gen experience."
     />
-    <!-- FONTS -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <title>Alpha Gaming</title>
+    <title>Game Stop | Home</title>
   </head>
 
   <body>
-    <!-- ========== HEADER ========== -->
-    <header class="headerContainer">
-      <div class="header">
-        <a href="index.html" class="logo">
-          <img src="images/loogoo.svg" alt="Alpha Logo" />
+    <header class="mainNavigationWrapper">
+      <div class="navContentBoundary">
+        <a href="index.html" class="brandBrandmark">
+          <img src="images/loogoo.svg" alt="Game Stop Logo" />
         </a>
 
-        <!-- Hamburger button (mobile) -->
         <button
-          class="menuToggle"
-          id="menuToggle"
+          class="mobileMenuTrigger"
+          id="triggerMobileNav"
           aria-label="Toggle navigation"
         >
           &#9776;
         </button>
 
-        <nav class="headerLinks" id="headerLinks">
-          <a href="index.html" class="active">Home</a>
-          <a href="#trending">Our Shop</a>
-          <a href="#mostPlayed">Product Details</a>
-          <a href="contactUs.html">Contact Us</a>
-          <button class="btn" id="signInBtn">Sign In</button>
+        <nav class="navigationLinkList" id="navigationLinkList">
+          <a href="index.html" class="currentActiveItem">Home</a>
+          <a href="#showcaseSection">Our Shop</a>
+          <a href="#engagementSection">Product Details</a>
+          <a href="contact.html">Contact Us</a>
+          <button class="globalActionButton" id="openAuthPortal">Sign In</button>
         </nav>
       </div>
     </header>
 
-    <!-- ========== LANDING PAGE ========== -->
-    <main class="landingPageContainer">
-      <div class="landingPage">
-        <!-- LEFT SIDE -->
-        <div class="leftSide">
-          <p class="welcome">Welcome to Alpha</p>
-          <h1 class="slogan">Your Ultimate Gaming Destination!</h1>
-          <p class="description">
-          Alpha Gaming — Your Ultimate Power-Up!
-Discover the hottest trending games, explore the latest releases, and dominate the leaderboard. Join a global community of millions who choose Alpha for an elite gaming experience.
+    <main class="heroPresentationArea">
+      <div class="heroGridFlex">
+        <div class="heroTextContent">
+          <p class="introGreeting">Welcome to <i>Game Stop</i></p>
+          <h1 class="mainMarketingSlogan">Your Ultimate <i>Gaming</i> Destination!</h1>
+          <p class="brandCoreDescription">
+            Game Stop — Your Ultimate <i>Power-Up</i>! Discover the world's latest blockbuster releases, track elite bestsellers, and receive real-time patches surrounded by a thriving global community of <i>millions of passionate gamers</i>. Your journey to competitive excellence starts right here.
           </p>
-          <!-- Search bar -->
-          <div class="searchBar">
+          <div class="interactiveSearchContainer">
             <input
               type="text"
-              id="searchInput"
+              id="gameQueryField"
               placeholder="Search for a game…"
             />
-            <button class="btn searchBtn" id="searchBtn">SEARCH NOW</button>
+            <button class="globalActionButton searchSubmitBtn" id="executeGameSearch">SEARCH NOW</button>
           </div>
-          <!-- Search result message -->
-          <p id="searchResult" class="searchResult"></p>
+          <p id="searchFeedbackBox" class="searchFeedbackBox"></p>
         </div>
 
-        <!-- RIGHT SIDE -->
-        <div class="imageContainer">
-          <img src="images/2341750.jpg" alt="Gaming banner" />
+        <div class="heroGraphicFrame">
+          <img src="images/2341750.jpg" alt="Gaming Banner" />
         </div>
       </div>
     </main>
 
-    <!-- ========== TRENDING GAMES ========== -->
-    <section class="trendingContainer" id="trending">
-      <span>🔥 Hot Right Now</span>
-      <div class="trendingHeader">
-        <h1>Trending Games</h1>
-        <button class="btn" id="viewAllTrending">View All</button>
+    <section class="showcaseSection" id="showcaseSection">
+      <span class="sectionSubLabel">🔥 Hot Right Now</span>
+      <div class="showcaseHeadingFlex">
+        <h1 class="sectionMainTitle">Trending <i>Games</i></h1>
+        <button class="globalActionButton" id="loadMoreTrending">View All</button>
       </div>
 
-      <div class="trendingCard" id="trendingCard">
-        <!-- Cards injected by JS -->
+      <div class="showcaseCardsGrid" id="trendingItemsContainer">
+        </div>
+    </section>
+
+    <section class="engagementSection" id="engagementSection">
+      <div class="engagementInnerBox">
+        <span class="sectionSubLabel">top games</span>
+        <div class="showcaseHeadingFlex">
+          <h1 class="sectionMainTitle">Most <i>Played</i></h1>
+          <button class="globalActionButton" id="loadMoreMostPlayed">View All</button>
+        </div>
+        <div class="engagementCardsGrid" id="mostPlayedItemsContainer">
+          </div>
       </div>
     </section>
 
-    <!-- ========== MOST PLAYED ========== -->
-    <section class="mostContainer" id="mostPlayed">
-      <div class="mostPlayed">
-        <span>top games</span>
-        <div class="mostHeader">
-          <h1>Most Played</h1>
-          <button class="btn" id="viewAllMost">View All</button>
+    <section class="taxonomySection">
+      <div class="taxonomyWrapper">
+        <div class="taxonomyCenterHeader">
+          <span class="sectionSubLabel">top genres</span>
+          <h1 class="sectionMainTitle">Top <i>Categories</i></h1>
         </div>
-        <div class="mostCards" id="mostCards">
-          <!-- Cards injected by JS -->
-        </div>
+        <div class="taxonomyCardsGrid" id="categoryItemsContainer">
+          </div>
       </div>
     </section>
 
-    <!-- ========== TOP CATEGORIES ========== -->
-    <section class="categoryContainer">
-      <div class="category">
-        <div class="categoryHeader">
-          <span>top games</span>
-          <h1>Top Categories</h1>
-        </div>
-        <div class="categoryCards" id="categoryCards">
-          <!-- Cards injected by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== VISIT COUNTER BANNER ========== -->
-    <div class="counterBanner">
-      <p id="visitMsg"></p>
+    <div class="trafficCounterWidget">
+      <p id="visitorStatusMessage"></p>
     </div>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="footerContainer">
-      <div class="footer">
-        copyright &copy; <span id="footerYear"></span> LUGX Gaming Company. All
-        rights reserved.
+    <footer class="siteFooterWrapper">
+      <div class="siteFooterContent">
+        Copyright &copy; <span id="copyrightCurrentYear"></span> <i>Game Stop</i> Store. All rights reserved.
       </div>
     </footer>
 
-    <!-- ========== SIGN-IN MODAL ========== -->
-    <div class="modalOverlay" id="modalOverlay">
-      <div class="modal">
-        <button class="modalClose" id="modalClose">&times;</button>
-        <h2>Sign In</h2>
-        <input type="text" id="modalUsername" placeholder="Username" />
-        <input type="password" id="modalPassword" placeholder="Password" />
-        <p id="modalMsg" class="modalMsg"></p>
-        <button class="btn" id="modalSubmit">Login</button>
+    <div class="authModalBackdrop" id="authPortalOverlay">
+      <div class="authModalCard">
+        <button class="authModalDismiss" id="closeAuthPortal">&times;</button>
+        <h2 class="authModalTitle">Sign <i>In</i></h2>
+        <input type="text" id="authUsernameInput" placeholder="Username" />
+        <input type="password" id="authPasswordInput" placeholder="Password" />
+        <p id="authValidationMessage" class="authValidationMessage"></p>
+        <button class="globalActionButton" id="submitAuthCredentials">Login</button>
       </div>
     </div>
 
