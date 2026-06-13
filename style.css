@@ -1,832 +1,839 @@
 /* ============================================================
-   LUGX GAMING – MAIN STYLESHEET
-   Covers: box-sizing, Flexbox, transitions, transforms,
-           pseudo-classes (:hover, :active), Media Queries
+   GAME STOP – ستايل شيت الألوان السيبرانية المتداخلة والمبهجة
+   تصميم ألعاب احترافي يعتمد على تدرجات النيون والأزرق الكوني العميق
    ============================================================ */
 
-/* ---------- RESET & BASE ---------- */
+/* ---------- 1. ريست وإعدادات الصفحة الأساسية المشبعة ---------- */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* حساب الأبعاد الإجمالية بدقة عشان مفيش حاجة تكسر */
   margin: 0;
   padding: 0;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #0d1117;
-  color: #e0e0e0;
-  overflow-x: hidden;
+  /* خلفية كونية متداخلة بين البنفسجي الغامق والأزرق الليلي المريح جداً للجيمرز */
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #2e1065 100%);
+  background-attachment: fixed; /* تثبيت الخلفية لإعطاء عمق أثناء السكرول */
+  color: #f1f5f9; /* لون نص فاتح وناصع متوافق تماماً مع الخلفية الداكنة */
+  overflow-x: hidden; /* حماية الأطراف ومنع السكرول الأفقي تماماً */
 }
 
-/* ---------- HEADER ---------- */
-.headerContainer {
-  background-color: #1a0a40;
-  position: sticky;
+/* ---------- 2. الهيدر ونظام القوائم العلوي المشع ---------- */
+.mainNavigationWrapper {
+  /* هيدر مدمج بتأثير الزجاج الشفاف (Glassmorphism) مع تظليل بنفسجي ليلي */
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky; /* تثبيت الملاحة أعلى الصفحة بشكل ذكي */
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 20px rgba(108, 63, 245, 0.4);
+  box-shadow: 0 4px 30px rgba(99, 102, 241, 0.15); /* ظل نيون خفيف يميل للبنفسجي لمنح عمق بصري */
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
 }
 
-.header {
-  height: 80px;
+.navContentBoundary {
+  height: 85px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
+  padding: 0 40px;
   max-width: 1300px;
   margin: auto;
 }
 
-.logo img {
-  width: 140px;
-  transition: transform 0.3s;
+.brandBrandmark img {
+  width: 150px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* تأثير انميشن ارتدادي خفيف للوجو */
 }
 
-.logo img:hover {
-  transform: scale(1.05);
+.brandBrandmark img:hover {
+  transform: scale(1.04); /* تكبير اللوجو عند الهوفر */
 }
 
-.headerLinks {
+.navigationLinkList {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 8px;
 }
 
-.headerLinks a {
+.navigationLinkList a {
   text-decoration: none;
-  color: #c9b8ff;
-  padding: 8px 14px;
+  color: #cbd5e1; /* لون رمادي فاتح أنيق للينكات العادية ليتباين مع الهيدر الزجاجي */
+  padding: 10px 18px;
   border-radius: 50px;
-  transition:
-    background-color 0.3s,
-    color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
   font-size: 0.95rem;
+  font-weight: 500;
 }
 
-.headerLinks a:hover {
-  background-color: #6c3ff5;
-  color: #fff;
+.navigationLinkList a:hover {
+  background-color: rgba(99, 102, 241, 0.2); /* خلفية بنفسجية خفيفة عند الوقوف بالماوس */
+  color: #38bdf8; /* تحول النص للأزرق السماوي المضيء */
 }
 
-.headerLinks a.active {
-  background-color: #00d4ff;
-  color: #fff;
+.navigationLinkList a.currentActiveItem {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(236, 72, 153, 0.3) 100%); /* تظليل نيون متدرج للعنصر النشط */
+  color: #38bdf8; /* نص سماوي صلب مضيء */
+  font-weight: 600;
+  border: 1px solid rgba(56, 189, 248, 0.4);
 }
 
-/* Hamburger – hidden on desktop */
-.menuToggle {
+/* زرار الهامبرجر المخصص للموبايل */
+.mobileMenuTrigger {
   display: none;
   background: none;
   border: none;
-  color: #fff;
+  color: #f1f5f9;
   font-size: 1.8rem;
   cursor: pointer;
 }
 
-/* ---------- SHARED BUTTON ---------- */
-.btn {
+/* ---------- 3. الزرار الموحد العصري (Global Button) ---------- */
+.globalActionButton {
   border-radius: 50px;
-  height: 50px;
+  height: 48px;
   border: none;
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 0 22px;
-  background-color: #00d4ff;
-  color: #fff;
+  padding: 0 26px;
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%); /* تدرج من الموف المضيء للبنفسجي المشع */
+  color: #ffffff;
   text-transform: uppercase;
-  transition:
-    background-color 0.3s,
-    transform 0.2s;
+  transition: all 0.3s ease;
   cursor: pointer;
   letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4); /* ظل نيون ملون للزرار */
 }
 
-.btn:hover {
-  background-color: #c70000;
-  transform: translateY(-2px);
+.globalActionButton:hover {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); /* انتقال لوني مشع عند الهوفر */
+  transform: translateY(-2px); /* رفعة ديناميكية لأعلى */
+  box-shadow: 0 6px 22px rgba(168, 85, 247, 0.6); /* زيادة كثافة الظل الفوشيا الملفت للإنتباه */
 }
 
-.btn:active {
-  transform: translateY(0) scale(0.97);
+.globalActionButton:active {
+  transform: translateY(0) scale(0.97); /* استجابة فيزيائية فورية للضغط لأسفل */
 }
 
-/* ---------- LANDING PAGE ---------- */
-.landingPageContainer {
-  background: linear-gradient(135deg, #161b22 0%, #0d1117 60%, #00d4ff 100%);
-  border-radius: 0 0 80px 80px;
+/* ---------- 4. سكشن البانر الرئيسي (Hero Area) ---------- */
+.heroPresentationArea {
+  /* تدرج سيبراني مبهج ينتقل بسلاسة من الأزرق الداكن إلى تموجات نيونية وردية وبنفسجية في الأطراف */
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.4) 0%, rgba(15, 23, 42, 0.6) 50%, rgba(236, 72, 153, 0.15) 100%);
+  border-radius: 0 0 50px 50px; /* حواف انسيابية سفلية لمنطقة العرض */
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
 }
 
-.landingPage {
+.heroGridFlex {
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: 90px 100px 80px;
+  gap: 60px;
+  padding: 90px 40px;
   max-width: 1300px;
   margin: auto;
 }
 
-.leftSide {
+.heroTextContent {
   flex: 6;
 }
 
-.welcome {
+.introGreeting {
   font-size: 1.1rem;
-  color: #ff7a3d;
+  color: #f43f5e; /* لون وردي/فوشيا نيون مبهج وواضح جداً للمقدمة */
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 8px rgba(244, 63, 94, 0.4);
 }
 
-.slogan {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #fff;
+.mainMarketingSlogan {
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: #ffffff; /* متباين بقوة مع الخلفيات الداكنة الجديدة */
   line-height: 1.15;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.description {
-  color: #c9b8ff;
-  width: 85%;
+.brandCoreDescription {
+  color: #94a3b8;
+  width: 90%;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.8;
   margin-bottom: 36px;
 }
 
-/* Search bar */
-.searchBar {
+/* شريط البحث العصري المتداخل */
+.interactiveSearchContainer {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
 }
 
-.searchBar input {
+.interactiveSearchContainer input {
   border-radius: 50px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  background: rgba(15, 23, 42, 0.6); /* حقل بحث مدمج مظلل */
   outline: none;
-  width: 280px;
-  height: 50px;
+  width: 320px;
+  height: 48px;
   font-size: 1rem;
-  padding: 0 20px;
-  color: #fff;
-  transition: border-color 0.3s;
+  padding: 0 24px;
+  color: #ffffff;
+  transition: all 0.3s ease;
   font-family: "Poppins", sans-serif;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.searchBar input::placeholder {
-  color: #a89fd4;
+.interactiveSearchContainer input::placeholder {
+  color: #64748b;
 }
 
-.searchBar input:focus {
-  border-color: #ff7a3d;
+.interactiveSearchContainer input:focus {
+  border-color: #38bdf8; /* يتحول البوردر للأزرق المضيء عند الكتابة */
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+  background: rgba(15, 23, 42, 0.9);
 }
 
-.searchResult {
-  margin-top: 14px;
+.interactiveSearchContainer .searchSubmitBtn {
+  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%); /* زرار بحث باللون الوردي المبهج لكسر الرتابة */
+  box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);
+}
+
+.interactiveSearchContainer .searchSubmitBtn:hover {
+  background: linear-gradient(135deg, #be185d 0%, #9d174d 100%);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
+}
+
+.searchFeedbackBox {
+  margin-top: 16px;
   font-size: 0.95rem;
   min-height: 22px;
-  color: #ffd580;
-  font-weight: 500;
+  color: #f43f5e;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(244, 63, 94, 0.3);
 }
 
-/* Landing right image */
-.imageContainer {
+/* الصورة الجانبية للهيرو */
+.heroGraphicFrame {
   flex: 5;
 }
 
-.imageContainer img {
+.heroGraphicFrame img {
   width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(108, 63, 245, 0.5);
-  transition: transform 0.4s;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(99, 102, 241, 0.25); /* ظل نيون مزدوج عميق */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.imageContainer img:hover {
-  transform: scale(1.03) rotate(-1deg);
+.heroGraphicFrame img:hover {
+  transform: scale(1.02) translateY(-4px); /* حركة خفيفة لإنعاش التفاعل */
 }
 
-/* ---------- SECTION SHARED STYLES ---------- */
-.trendingContainer {
+/* ---------- 5. العناوين المشتركة لجميع السكاشن ---------- */
+.showcaseSection {
   max-width: 1300px;
   margin: 90px auto 0;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
-.trendingHeader,
-.mostHeader {
+.showcaseHeadingFlex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 30px;
+  padding-bottom: 28px;
 }
 
-.trendingContainer > span,
-.mostContainer span,
-.categoryHeader span {
+.sectionSubLabel {
   display: block;
   text-transform: uppercase;
-  color: #ff7a3d;
-  font-weight: 600;
+  color: #f43f5e; /* فوشيا مضيء للتصنيفات الصغيرة المرتفعة */
+  font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 2px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  text-shadow: 0 0 5px rgba(244, 63, 94, 0.3);
 }
 
-.trendingHeader h1,
-.mostHeader h1,
-.categoryHeader h1 {
-  color: #fff;
-  font-size: 2rem;
+.sectionMainTitle {
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 700;
   margin-top: 0;
 }
 
-/* ---------- TRENDING CARDS ---------- */
-.trendingCard {
+/* ---------- 6. كروت قسم ألعاب التريند السيبراني (Showcase) ---------- */
+.showcaseCardsGrid {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
-.trendingCard .card {
+.showcaseCardsGrid .interactiveItemCard {
   position: relative;
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
   flex: 1;
-  min-width: 200px;
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+  min-width: 260px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  background-color: #1e1b4b; /* خلفية كارت بنفسجية داكنة متناسقة */
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.trendingCard .card:hover {
+.showcaseCardsGrid .interactiveItemCard:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(108, 63, 245, 0.4);
+  box-shadow: 0 20px 35px rgba(99, 102, 241, 0.3);
+  border-color: rgba(56, 189, 248, 0.6); /* بوردر مضيء عند الهوفر */
 }
 
-.trendingCard .card > img {
+.showcaseCardsGrid .interactiveItemCard > img {
   width: 100%;
-  height: 240px;
-  object-fit: cover;
+  height: 260px;
+  object-fit: contain;
+  background-color: #0b0f19;
   display: block;
-  border-radius: 20px;
 }
 
-.trendingCard .card .cardInfo {
+.showcaseCardsGrid .interactiveItemCard .cardInformationOverlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(26, 10, 64, 0.95), transparent);
-  border-radius: 0 0 20px 20px;
-  padding: 40px 16px 14px;
+  /* تدرج ليلي مدمج لعرض النصوص بوضوح تام وتناسق نيون رائع */
+  background: linear-gradient(to top, #111827 60%, rgba(17, 24, 39, 0) 100%);
+  padding: 45px 20px 20px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.trendingCard .cardName p {
-  color: #a89fd4;
+.showcaseCardsGrid .cardTextGroup p {
+  color: #38bdf8; /* نصوص فرعية بالأزرق السماوي المشع */
   font-size: 0.8rem;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
+  font-weight: 500;
 }
 
-.trendingCard .cardName h3 {
-  color: #fff;
+.showcaseCardsGrid .cardTextGroup h3 {
+  color: #ffffff;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
-.trendingCard .cardInfo .icon img {
+.showcaseCardsGrid .cardInformationOverlay .actionIconWrapper img {
   width: 44px;
-  transition: transform 0.3s;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.5));
+  transition: transform 0.3s ease;
 }
 
-.trendingCard .cardInfo .icon img:hover {
-  transform: scale(1.3) rotate(10deg);
+.showcaseCardsGrid .cardInformationOverlay .actionIconWrapper img:hover {
+  transform: scale(1.15) rotate(8deg);
 }
 
-/* ---------- MOST PLAYED ---------- */
-.mostContainer {
-  background: linear-gradient(135deg, #1a0a40, #2e1163);
-  margin-top: 90px;
-  padding: 60px 40px;
-  border-radius: 60px;
+/* ---------- 7. قسم الأكثر لعباً ذو الخلفية المتداخلة المشبعة ---------- */
+.engagementSection {
+  /* تدرج مبهج ينتقل من البنفسجي العميق للأزرق الداكن ليفصل السكاشن باحترافية */
+  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+  border-top: 1px solid rgba(99, 102, 241, 0.25);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.25);
+  margin-top: 100px;
+  padding: 70px 40px;
 }
 
-.mostPlayed {
+.engagementInnerBox {
   max-width: 1300px;
   margin: auto;
 }
 
-.mostCards {
+.engagementCardsGrid {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
-.mostCards .card {
+.engagementCardsGrid .interactiveItemCard {
   flex: 1;
-  min-width: 150px;
-  background-color: #0f0f1a;
+  min-width: 200px;
+  background-color: rgba(30, 41, 59, 0.7); /* كروت داكنة مدمجة بتأثير زجاجي */
+  backdrop-filter: blur(8px);
   border-radius: 20px;
   overflow: hidden;
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+  transition: all 0.3s ease;
   text-align: center;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.mostCards .card:hover {
+.engagementCardsGrid .interactiveItemCard:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(108, 63, 245, 0.4);
+  box-shadow: 0 16px 25px rgba(236, 72, 153, 0.25);
+  border-color: rgba(236, 72, 153, 0.7); /* إضاءة بوردر وردية قوية جذابة */
 }
 
-.cardImg img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
+/* مظهر مميز لكروت البريميوم المضافة اختيارياً */
+.engagementCardsGrid .interactiveItemCard.specialFeatureItem {
+  border: 2px solid rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
 }
 
-.mostCards .cardInfo {
+.engagementCardsGrid .interactiveItemCard img[src*="top-game-06"] {
+  object-fit: contain !important;
+  background-color: #0b0f19; 
+}
+
+.engagementCardsGrid .cardBottomDetails {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 14px 10px 18px;
-  gap: 8px;
+  padding: 18px 14px 22px;
+  gap: 12px;
 }
 
-.mostCards .cardInfo .genre {
-  color: #a89fd4;
+.engagementCardsGrid .cardBottomDetails .itemCategoryBadge {
+  color: #38bdf8; /* كود صنف باللون الأزرق المضيء */
   font-size: 0.8rem;
-}
-
-.mostCards .cardInfo .cardName {
-  color: #fff;
-  font-size: 0.95rem;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
-.mostCards .cardInfo .btn {
-  height: 38px;
+.engagementCardsGrid .cardBottomDetails .itemDisplayTitle {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.engagementCardsGrid .cardBottomDetails .globalActionButton {
+  height: 36px;
   font-size: 0.8rem;
   padding: 0 18px;
+  background: linear-gradient(135deg, #ec4899 0%, #6366f1 100%); /* زرار ميكس نيون مبهج */
 }
 
-/* ---------- TOP CATEGORIES ---------- */
-.categoryContainer {
-  margin-top: 90px;
-  padding: 0 20px;
+/* ---------- 8. قسم التصنيفات الكبرى المبهج (Taxonomy) ---------- */
+.taxonomySection {
+  margin-top: 100px;
+  padding: 0 40px;
 }
 
-.category {
+.taxonomyWrapper {
   max-width: 1300px;
   margin: auto;
 }
 
-.categoryHeader {
+.taxonomyCenterHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
 }
 
-.categoryCards {
+.taxonomyCardsGrid {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
-.categoryCards .card {
+.taxonomyCardsGrid .interactiveItemCard {
   flex: 1;
-  min-width: 160px;
-  border-radius: 20px;
+  min-width: 210px;
+  border-radius: 24px;
   overflow: hidden;
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+  transition: all 0.3s ease;
+  background-color: #1e1b4b;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.categoryCards .card:hover {
-  transform: scale(1.05) translateY(-4px);
-  box-shadow: 0 16px 40px rgba(108, 63, 245, 0.5);
+.taxonomyCardsGrid .interactiveItemCard:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 20px 30px rgba(99, 102, 241, 0.25);
+  border-color: #a855f7;
 }
 
-.categoryCards .card .genre {
-  background-color: #6c3ff5;
+.taxonomyCardsGrid .interactiveItemCard .categoryTextHeader {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); /* ترويسة متدرجة بالبنفسجي والموف الساطع */
   text-align: center;
-  color: #fff;
-  padding: 12px 0 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 20px 20px 0 0;
+  color: #ffffff;
+  padding: 16px 0 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 22px 22px 0 0;
 }
 
-.categoryCards .card .cardImg {
+.taxonomyCardsGrid .interactiveItemCard .categoryMediaBody {
   position: relative;
-  top: -18px;
-  border-radius: 0 0 20px 20px;
+  top: -20px;
+  border-radius: 0 0 22px 22px;
   overflow: hidden;
+  margin: 0 12px;
 }
 
-.categoryCards .card .cardImg img {
+.taxonomyCardsGrid .interactiveItemCard .categoryMediaBody img {
   width: 100%;
-  height: 150px;
+  height: 160px;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s;
+  transition: transform 0.4s ease;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.categoryCards .card:hover .cardImg img {
-  transform: scale(1.08);
+.taxonomyCardsGrid .interactiveItemCard:hover .categoryMediaBody img {
+  transform: scale(1.05);
 }
 
-/* ---------- VISIT COUNTER BANNER ---------- */
-.counterBanner {
+/* ---------- 9. ويدجت بنر عداد الزيارات التفاعلي ---------- */
+.trafficCounterWidget {
   max-width: 1300px;
-  margin: 60px auto 0;
-  padding: 0 20px;
+  margin: 70px auto 0;
+  padding: 0 40px;
   text-align: center;
 }
 
-.counterBanner p {
-  background: linear-gradient(90deg, #161b22, #00d4ff);
-  color: #fff;
-  font-weight: 600;
+.trafficCounterWidget p {
+  background: rgba(30, 27, 75, 0.6); /* بنر متناسق بحواف نيون مشعة */
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  font-weight: 700;
   font-size: 1rem;
-  padding: 16px 30px;
+  padding: 16px 40px;
   border-radius: 50px;
   display: inline-block;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+  text-shadow: 0 0 4px rgba(56, 189, 248, 0.3);
 }
 
-/* ---------- FOOTER ---------- */
-.footerContainer {
-  background: linear-gradient(135deg, #1a0a40, #2e1163);
-  height: 140px;
-  border-radius: 60px 60px 0 0;
-  margin-top: 80px;
+/* ---------- 10. الفوتر ونظام التذييل الرئيسي ---------- */
+.siteFooterWrapper {
+  background: #0b0f19; /* فوتر داكن جداً لإنهاء نظام الألوان بقوة وثبات */
+  height: 110px;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  margin-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer {
+.siteFooterContent {
   max-width: 1300px;
   margin: auto;
   text-align: center;
-  color: #c9b8ff;
+  color: #64748b;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
-/* ---------- SIGN-IN MODAL ---------- */
-.modalOverlay {
+/* ---------- 11. نافذة الحساب المنبثقة (Auth Portal Modal) ---------- */
+.authModalBackdrop {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(15, 23, 42, 0.7); /* تعتيم منسجم لحجب الرؤية الخلفية */
+  backdrop-filter: blur(6px); /* تأثير غباشي ضبابي مودرن */
   z-index: 999;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.modalOverlay.active {
+.authModalBackdrop.active {
   display: flex;
+  opacity: 1;
 }
 
-.modal {
-  background: #1a0a40;
-  border: 1px solid #6c3ff5;
-  border-radius: 20px;
-  padding: 40px 36px;
-  width: 360px;
+.authModalCard {
+  background: #1e1b4b;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 24px;
+  padding: 45px 40px;
+  width: 390px;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 20px 60px rgba(108, 63, 245, 0.5);
-  transform: translateY(-30px);
-  transition: transform 0.3s;
+  gap: 18px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.2);
+  transform: scale(0.92) translateY(-15px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.modalOverlay.active .modal {
-  transform: translateY(0);
+.authModalBackdrop.active .authModalCard {
+  transform: scale(1) translateY(0);
 }
 
-.modal h2 {
-  color: #fff;
+.authModalTitle {
+  color: #ffffff;
   text-align: center;
-  margin-bottom: 8px;
+  font-size: 1.7rem;
+  font-weight: 700;
 }
 
-.modal input {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.authModalCard input {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 50px;
-  height: 48px;
-  padding: 0 20px;
-  color: #fff;
+  height: 50px;
+  padding: 0 22px;
+  color: #ffffff;
   font-size: 0.95rem;
   outline: none;
   font-family: "Poppins", sans-serif;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
 }
 
-.modal input:focus {
-  border-color: #ff7a3d;
+.authModalCard input:focus {
+  border-color: #38bdf8; /* هالة ضوئية زرقاء داخل الحقل */
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
-.modal input::placeholder {
-  color: #a89fd4;
+.authModalCard input::placeholder {
+  color: #475569;
 }
 
-.modalClose {
+.authModalDismiss {
   position: absolute;
-  top: 14px;
-  right: 18px;
+  top: 18px;
+  right: 22px;
   background: none;
   border: none;
-  color: #a89fd4;
-  font-size: 1.6rem;
+  color: #64748b;
+  font-size: 1.7rem;
   cursor: pointer;
   transition: color 0.2s;
 }
 
-.modalClose:hover {
-  color: #ff7a3d;
+.authModalDismiss:hover {
+  color: #f43f5e;
 }
 
-.modalMsg {
+.authValidationMessage {
   font-size: 0.9rem;
   min-height: 18px;
   text-align: center;
 }
 
-/* ---------- CONTACT PAGE ---------- */
-.contactHero {
-  background: linear-gradient(135deg, #1a0a40 0%, #2e1163 60%, #6c3ff5 100%);
+/* ---------- 12. صفحة التواصل وفورم البيانات (Contact Form) ---------- */
+.informationalHeroHeader {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.25);
   text-align: center;
-  padding: 80px 20px 100px;
-  border-radius: 0 0 60px 60px;
+  padding: 85px 20px;
 }
 
-.contactHero h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 14px;
+.informationalTitle {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
 }
 
-.contactHero p {
-  color: #c9b8ff;
-  font-size: 1.1rem;
+.informationalSubtitle {
+  color: #94a3b8;
+  font-size: 1.15rem;
 }
 
-.formContainer {
+.formSubmissionBoundary {
   display: flex;
   justify-content: center;
   padding: 60px 20px;
 }
 
-.formContainer form {
-  background: linear-gradient(160deg, #1a0a40, #2e1163);
-  border: 1px solid rgba(108, 63, 245, 0.4);
+.formSubmissionBoundary form {
+  background: #1e1b4b;
+  border: 1px solid rgba(99, 102, 241, 0.3);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   width: 100%;
-  max-width: 480px;
-  padding: 40px 36px;
+  max-width: 520px;
+  padding: 45px 40px;
   border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(108, 63, 245, 0.25);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-.formContainer form h2 {
-  color: #fff;
+.formBoxTitle {
+  color: #ffffff;
   text-align: center;
-  margin-bottom: 8px;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
 }
 
-.formContainer form label {
-  color: #c9b8ff;
+.formInputLabel {
+  color: #38bdf8; /* ليبلات باللون السماوي لسهولة القراءة والجمالية السيبرانية */
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: -6px;
 }
 
-.formContainer form input,
-.formContainer form textarea {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  padding: 12px 16px;
-  color: #fff;
+.formInteractiveField {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: #ffffff;
   font-size: 0.95rem;
   font-family: "Poppins", sans-serif;
   outline: none;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
   resize: none;
 }
 
-.formContainer form input::placeholder,
-.formContainer form textarea::placeholder {
-  color: #6a5ea0;
+.formInteractiveField:focus {
+  border-color: #ec4899; /* تحول البوردر للفوشيا النيون عند الكتابة داخل الفورم */
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
 }
 
-.formContainer form input:focus,
-.formContainer form textarea:focus {
-  border-color: #ff7a3d;
+.formTextareaHeight {
+  min-height: 120px;
 }
 
-.formFeedback {
+.submissionFeedbackLine {
   font-size: 0.9rem;
   min-height: 20px;
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* ---------- MEDIA QUERIES ---------- */
+/* ---------- 13. شاشات التجاوب والـ Media Queries ---------- */
 
-/* Tablet: ≤ 1024px */
+/* شاشات الأجهزة اللوحية (التابلت): ≤ 1024px */
 @media (max-width: 1024px) {
-  .header {
-    padding: 0 40px;
+  .navContentBoundary {
+    padding: 0 32px;
   }
 
-  .landingPage {
-    padding: 70px 40px 60px;
+  .heroGridFlex {
+    padding: 60px 32px;
     flex-direction: column;
+    text-align: center;
   }
 
-  .slogan {
-    font-size: 2.2rem;
+  .mainMarketingSlogan {
+    font-size: 2.6rem;
   }
 
-  .description {
+  .brandCoreDescription {
     width: 100%;
   }
 
-  .imageContainer {
-    width: 100%;
+  .interactiveSearchContainer {
+    justify-content: center;
   }
 
-  .imageContainer img {
-    width: 80%;
+  .heroGraphicFrame img {
+    width: 75%;
     margin: auto;
-    display: block;
   }
 
-  .trendingContainer {
-    padding: 0 40px;
+  .showcaseSection,
+  .taxonomySection {
+    padding: 0 32px;
   }
 
-  .mostContainer {
-    padding: 50px 30px;
-    border-radius: 40px;
-  }
-
-  .categoryContainer {
-    padding: 0 40px;
+  .showcaseCardsGrid,
+  .engagementCardsGrid,
+  .taxonomyCardsGrid {
+    justify-content: center; /* منع تشتت الكروت وتوسيطها عند الالتفاف */
   }
 }
 
-/* Mobile: ≤ 768px */
+/* شاشات الموبايل القياسية: ≤ 768px */
 @media (max-width: 768px) {
-  /* Mobile nav */
-  .menuToggle {
-    display: block;
+  .mobileMenuTrigger {
+    display: block; /* تفجير زر القائمة على الموبايل */
   }
 
-  .headerLinks {
-    display: none;
+  .navigationLinkList {
+    display: none; /* طي القائمة الأفقية الأساسية */
     flex-direction: column;
     position: absolute;
-    top: 80px;
+    top: 85px;
     left: 0;
     right: 0;
-    background-color: #1a0a40;
-    padding: 20px;
-    gap: 10px;
+    background-color: #1e1b4b;
+    padding: 24px;
+    gap: 14px;
     z-index: 99;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(99, 102, 241, 0.25);
   }
 
-  .headerLinks.open {
-    display: flex;
+  .navigationLinkList.open {
+    display: flex; /* إتاحة الفتح المرن للينكات عبر الكلاس open */
   }
 
-  .headerLinks a {
+  .navigationLinkList a {
     width: 100%;
     text-align: center;
-    padding: 12px;
+    padding: 14px;
   }
 
-  .headerLinks .btn {
+  .navigationLinkList .globalActionButton {
     width: 100%;
   }
 
-  .header {
+  .navContentBoundary {
     padding: 0 20px;
-    position: relative;
   }
 
-  .landingPage {
-    padding: 50px 20px 40px;
+  .mainMarketingSlogan {
+    font-size: 2.1rem;
   }
 
-  .slogan {
-    font-size: 1.8rem;
+  .interactiveSearchContainer input {
+    width: 100%; /* تمدد حقل الإدخال لسهولة الكتابة على الموبايل */
   }
 
-  .searchBar input {
-    width: 100%;
+  .showcaseSection,
+  .taxonomySection {
+    padding: 0 20px;
   }
 
-  .trendingContainer {
-    padding: 0 16px;
+  .showcaseCardsGrid .interactiveItemCard,
+  .engagementCardsGrid .interactiveItemCard {
+    min-width: 100%; /* كارت واحد عريض لكل سطر للمثالية البصرية */
   }
 
-  .trendingCard {
-    flex-direction: column;
-  }
-
-  .trendingCard .card {
-    min-width: 100%;
-  }
-
-  .mostContainer {
-    padding: 40px 16px;
-    border-radius: 30px;
-    margin-top: 50px;
-  }
-
-  .mostCards {
-    flex-direction: column;
-  }
-
-  .mostCards .card {
-    min-width: 100%;
-  }
-
-  .categoryCards {
-    flex-wrap: wrap;
-  }
-
-  .categoryCards .card {
-    min-width: calc(50% - 10px);
+  .taxonomyCardsGrid .interactiveItemCard {
+    min-width: calc(50% - 12px); /* كارتين متجاورين في التصنيفات على الموبايل */
     flex: none;
   }
 
-  .categoryContainer {
-    padding: 0 16px;
-  }
-
-  .footerContainer {
-    border-radius: 40px 40px 0 0;
-  }
-
-  /* Contact form */
-  .contactHero h1 {
-    font-size: 2rem;
-  }
-
-  .formContainer form {
-    padding: 28px 20px;
+  .engagementSection {
+    padding: 40px 20px;
   }
 }
 
-/* Small mobile: ≤ 480px */
+/* شاشات الموبايل الصغيرة جداً: ≤ 480px */
 @media (max-width: 480px) {
-  .slogan {
-    font-size: 1.5rem;
+  .mainMarketingSlogan {
+    font-size: 1.7rem;
   }
 
-  .landingPage {
-    padding: 40px 14px 30px;
+  .taxonomyCardsGrid .interactiveItemCard {
+    min-width: 100%; /* تمديد الكروت بالكامل على الشاشات شديدة الصغر */
   }
 
-  .categoryCards .card {
-    min-width: 100%;
-  }
-
-  .counterBanner p {
+  .trafficCounterWidget p {
     font-size: 0.85rem;
-    padding: 14px 20px;
+    padding: 12px 24px;
   }
 
-  .modal {
-    width: 90%;
-    padding: 30px 20px;
+  .authModalCard {
+    width: 92%;
+    padding: 35px 20px;
   }
 }
